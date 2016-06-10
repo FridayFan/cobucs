@@ -35,5 +35,8 @@ Meteor.methods({
         var response = wrappedRunPython(options);
         return response;
 
+    },
+    'runDownload':function(){
+      return "File downloading placeholder";
     }
 });

@@ -43,6 +43,16 @@ const Inputform = React.createClass({
     }
     
   },
+  DownloadFile(e){
+    e.preventDefault();
+    Meteor.call('runDownload',function(err,results){
+      if(err){
+        console.log(err)
+      }else{
+        Materialize.toast(results, 4000);
+      }
+    })
+  },
   onDrop(files) {
       console.log('Received files: ', files);
   },
@@ -89,7 +99,7 @@ const Inputform = React.createClass({
                 </div>
             </div>
             <div className="card-action">
-              <a href="" className="waves-effect waves-light btn" onClick={this.TestClick}>Run</a>
+              <a href="" className="waves-effect waves-light btn" onClick={this.DownloadFile}>Download</a>
 
             </div>
             <div className={preloadClass}>
